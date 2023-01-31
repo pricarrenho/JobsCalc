@@ -7,8 +7,8 @@ import { MyProfile } from "../pages/MyProfile";
 export const Routes = () => {
   return (
     <RouteLib>
-      <Route path="/" element={<Home />} />
-      <Route path="my-profile/*" element={<MyProfile />} />
+      <Route path="/" element={<MyProfile />} />
+      <Route path="home/*" element={<Home />} />
       <Route path="edit-job/*" element={<EditJob />} />
       <Route path="add-new-job/*" element={<AddNewJob />} />
     </RouteLib>
