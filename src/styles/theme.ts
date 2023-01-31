@@ -1,9 +1,12 @@
 const colors = {
   black: "#13131A",
   white: "#FFFFFF",
-  orange: "#F1972C",
-  red: "#EB3B35",
-  green: "#36B336",
+  orange900: "#F1972C",
+  orange800: "#FA9C2D",
+  red900: "#EB3B35",
+  red800: "#FA3F38",
+  green900: "#36B336",
+  green800: "#3CC73C",
   gray900: "#41414C",
   gray800: "#5A5A66",
   gray700: " #787880;",
@@ -14,6 +17,7 @@ const colors = {
   neutral600: "#E1E3E5",
   neutral500: "#F0F2F5",
   neutral400: "#FCFDFF",
+  neutral300: "#ECEEF0",
 };
 
 const font = {

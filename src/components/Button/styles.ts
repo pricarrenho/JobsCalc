@@ -5,19 +5,35 @@ type WrapperProps = Pick<ButtonProps, "styleType" | "fullWidth">;
 
 const WrapperModifier = {
   red: (theme: DefaultTheme) => css`
-    background-color: ${theme.colors.red};
+    background-color: ${theme.colors.red900};
+
+    &:hover {
+      background-color: ${theme.colors.red800};
+    }
   `,
 
   green: (theme: DefaultTheme) => css`
-    background-color: ${theme.colors.green};
+    background-color: ${theme.colors.green900};
+
+    &:hover {
+      background-color: ${theme.colors.green800};
+    }
   `,
 
   gray: (theme: DefaultTheme) => css`
     background-color: ${theme.colors.neutral700};
+
+    &:hover {
+      background-color: ${theme.colors.neutral300};
+    }
   `,
 
   orange: (theme: DefaultTheme) => css`
-    background-color: ${theme.colors.orange};
+    background-color: ${theme.colors.orange900};
+
+    &:hover {
+      background-color: ${theme.colors.orange800};
+    }
   `,
 
   fullWidth: () => css`
