@@ -1,7 +1,7 @@
 import { PlusSign } from "../../assets/svg/PlusSign";
 import { Trash } from "../../assets/svg/Trash";
-import * as S from "./styles";
 import { ButtonProps } from "./types";
+import * as S from "./styles";
 
 const icons = {
   trash: <Trash color="#787880" />,

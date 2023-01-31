@@ -1,5 +1,5 @@
-import * as S from "./styles";
 import { InputProps } from "./types";
+import * as S from "./styles";
 
 export const Input = ({ name, type, placeholder, children }: InputProps) => {
   return (
