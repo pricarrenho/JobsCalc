@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.div`
-  ${({ theme }) => css``}
-`;
-
 export const Label = styled.label`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.sm};
@@ -27,10 +23,16 @@ export const Input = styled.input`
     padding-right: 16px;
     padding-left: 16px;
     margin-top: 16px;
+    margin-bottom: 16px;
     outline: none;
+    box-sizing: border-box;
   `}
 
   &:hover {
-    border-color: #787880;
+    border-color: #bfbfcc;
+  }
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
 `;

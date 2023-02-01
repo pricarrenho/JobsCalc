@@ -15,7 +15,7 @@ export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
       <S.Container>
         <Container>
           <S.Wrapper>
-            <Link to="home" icon="ArrowLeft"></Link>
+            <Link to="/home" icon="ArrowLeft"></Link>
             <h2>{title}</h2>
           </S.Wrapper>
         </Container>

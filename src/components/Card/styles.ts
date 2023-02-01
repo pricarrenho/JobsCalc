@@ -1,15 +1,5 @@
 import styled, { css } from "styled-components";
 
-type ImgProps = {
-  active?: string;
-};
-
-const ImgModifier = {
-  active: () => css`
-    filter: grayscale(100%);
-  `,
-};
-
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.neutral400};
@@ -37,8 +27,20 @@ export const Text = styled.p`
   `}
 `;
 
+type ImgProps = {
+  active?: boolean;
+};
+
+const ImgModifier = {
+  active: () => css`
+    filter: unset;
+  `,
+};
+
 export const Img = styled.img<ImgProps>`
   ${({ active }) => css`
+    filter: grayscale(100%);
+
     ${active && ImgModifier.active()};
   `}
 `;

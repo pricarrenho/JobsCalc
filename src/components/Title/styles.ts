@@ -5,6 +5,7 @@ export const Wrapper = styled.h1`
     color: ${theme.colors.gray800};
     font-size: ${theme.font.sizes.xlg};
     position: relative;
+    margin-bottom: 24px;
 
     &::after {
       content: "";
@@ -12,7 +13,7 @@ export const Wrapper = styled.h1`
       width: 641px;
       height: 0px;
       border: 1.5px solid #e1e3e5;
-      bottom: 16px;
+      bottom: -10px;
       left: 0px;
     }
   `}
