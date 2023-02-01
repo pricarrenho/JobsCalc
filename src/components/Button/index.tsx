@@ -4,7 +4,7 @@ import { ButtonProps } from "./types";
 import * as S from "./styles";
 
 const icons = {
-  trash: <Trash color="#787880" />,
+  trash: <Trash color="#787880" size={24} />,
   plusSign: <PlusSign color="#FCFDFF" />,
 };
 

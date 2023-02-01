@@ -43,9 +43,8 @@ const WrapperModifier = {
 
 export const Wrapper = styled.button<WrapperProps>`
   ${({ theme, styleType, fullWidth }) => css`
-    font-family: ${theme.font.sizes.xsm};
+    font-weight: 700;
     color: ${theme.colors.neutral400};
-    padding: 12px;
     border: none;
     border-radius: 8px;
     height: 50px;

@@ -1,9 +1,9 @@
 import { HeaderProps } from "./types";
 import { Link } from "../Link";
-import * as S from "./styles";
 import { Container } from "../Container";
 import { Logo } from "../Logo";
 import { Alert } from "../../assets/svg/Alert";
+import * as S from "./styles";
 
 const icons = {
   alert: <Alert />,
