@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 export const Label = styled.label`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.sm};
     color: ${theme.colors.gray700};
     font-weight: 500;
     line-height: 24px;
@@ -34,5 +33,9 @@ export const Input = styled.input`
 
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
+  }
+
+  &::placeholder {
+    color: #bfbfcc;
   }
 `;

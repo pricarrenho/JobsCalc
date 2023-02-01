@@ -9,5 +9,5 @@ export const Wrapper = styled.div`
 
 export const Input = styled.div`
   display: flex;
-  gap: 48px;
+  gap: 18px;
 `;

@@ -14,16 +14,16 @@ export const AddNewJob = () => {
         <S.Wrapper>
           <div>
             <Title children="Dados do Job" />
-            <Input children="Nome do Job" name="name" type="text" />
+            <Input label="Nome do Job" name="name" type="text" />
 
             <S.Input>
               <Input
-                children="Quantas horas por dia vai dedicar ao Job?"
+                label="Quantas horas<br />por dia vai dedicar ao Job?"
                 name="hoursPerDay"
                 type="number"
               />
               <Input
-                children="Estimativa de horas para esse job"
+                label="Estimativa de<br />horas para esse job"
                 name="totalHours"
                 type="number"
               />

@@ -48,6 +48,7 @@ export const Wrapper = styled.button<WrapperProps>`
     border: none;
     border-radius: 8px;
     height: 50px;
+    text-transform: uppercase;
     cursor: pointer;
 
     ${styleType && WrapperModifier[styleType](theme)}

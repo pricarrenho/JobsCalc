@@ -8,5 +8,9 @@ export const GlobalStyle = createGlobalStyle`
       background: ${theme.colors.background};
       font-family: ${theme.font.family};
     }
+
+    h1 {
+      margin: 0;
+    }
   `}
 `;
