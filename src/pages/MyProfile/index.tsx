@@ -1,11 +1,25 @@
+import { useState } from "react";
 import { Button } from "../../components/Button";
 import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Title } from "../../components/Title";
+import { convertToCurrency } from "../../utils/convertCurrency";
+import yourPhoto from "../../assets/img/photo.png";
 import * as S from "./styles";
 
 export const MyProfile = () => {
+  const [name, setName] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [value, setValue] = useState("");
+  const [hours, setHours] = useState("");
+  const [days, setDays] = useState("");
+  const [weeks, setWeeks] = useState("");
+
+  const dataFilled = value && days && hours;
+
+  const valorTotal = (Number(value) / Number(days) / Number(hours)).toFixed(2);
+
   return (
     <div>
       <Header title="Meu perfil" goBackHeader />
@@ -13,24 +27,47 @@ export const MyProfile = () => {
       <Container>
         <S.Wrapper>
           <S.LeftContentCard>
-            <div>
-              <div>Imagem</div>
-              <h1>Priscilla</h1>
-            </div>
-            <div>
-              <p>O valor da sua hora é R$ 75,00 reais</p>
-              <Button styleType="green" fullWidth>
-                Salvar Dados
-              </Button>
-            </div>
+            {photo ? (
+              <S.Img
+                src={photo}
+                alt="Imagem da foto selecionada pelo usuário"
+              />
+            ) : (
+              <S.Img
+                src={yourPhoto}
+                alt="Imagem com uma camera e o texto 'Sua foto aqui' embaixo"
+              />
+            )}
+            <h2>{name}</h2>
+
+            <p>
+              {dataFilled ? (
+                <>
+                  O valor da sua hora é{" "}
+                  <span>{convertToCurrency(valorTotal)}</span>
+                </>
+              ) : (
+                "Preencha os campos para saber seu valor/hora."
+              )}
+            </p>
+
+            <Button styleType="green" fullWidth>
+              Salvar Dados
+            </Button>
           </S.LeftContentCard>
 
           <div>
             <Title>Dados do perfil</Title>
 
             <S.InputFirstContent>
-              <Input label="Nome" name="name" type="text" />
-              <Input label="Link da foto" name="name" type="text" />
+              <Input label="Nome" name="name" type="text" onChange={setName} />
+
+              <Input
+                label="Link da foto"
+                name="name"
+                type="text"
+                onChange={setPhoto}
+              />
             </S.InputFirstContent>
 
             <Title>Planejamento</Title>
@@ -41,21 +78,28 @@ export const MyProfile = () => {
                 placeholder="R$"
                 name="planning"
                 type="text"
+                onChange={setValue}
               />
+
               <Input
                 label="Quantas horas<br />quero trabalhar por dia?"
                 name="hours"
                 type="number"
+                onChange={setHours}
               />
+
               <Input
                 label="Quantos dias quero<br />trabalhar por semana?"
                 name="days"
                 type="number"
+                onChange={setDays}
               />
+
               <Input
                 label="Quantas semanas<br />por ano você quer tirar férias?"
                 name="weeks"
                 type="number"
+                onChange={setWeeks}
               />
             </S.InputSecondContent>
           </div>

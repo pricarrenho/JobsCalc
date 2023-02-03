@@ -9,8 +9,13 @@ export const GlobalStyle = createGlobalStyle`
       font-family: ${theme.font.family};
     }
 
-    h1 {
+    h1,
+    h2 {
       margin: 0;
+    }
+
+    a {
+      text-decoration: none;
     }
   `}
 `;

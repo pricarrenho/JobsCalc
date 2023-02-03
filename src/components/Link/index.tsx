@@ -3,7 +3,7 @@ import { ArrowLeft } from "../../assets/svg/ArrowLeft";
 import { LinkProps } from "./types";
 
 const icons = {
-  ArrowLeft: <ArrowLeft color="#BFBFCC" />,
+  ArrowLeft: <ArrowLeft color="#BFBFCC" size={22} />,
 };
 
 export const Link = ({ to, icon }: LinkProps) => {
