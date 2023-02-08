@@ -11,7 +11,7 @@ export const WrapperGoBackHeader = styled.div`
     display: flex;
     align-items: center;
     background-color: ${theme.colors.gray900};
-    height: 88px;
+    height: 5.5rem;
     position: relative;
 
     h2 {
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 88px;
+    height: 5.5rem;
 
     h2 {
       color: ${theme.colors.gray600};
@@ -40,11 +40,19 @@ export const Wrapper = styled.div`
   `}
 `;
 
+export const Alert = styled.div`
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+`;
+
 export const ContentRight = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
 
     h2 {
       font-size: ${theme.font.sizes.md};
@@ -59,7 +67,7 @@ export const ContentRight = styled.div`
 
 export const Img = styled.img`
   border-radius: 50%;
-  width: 64px;
-  height: 64px;
+  width: 4rem;
+  height: 4rem;
   border: 4px solid #f1972c;
 `;

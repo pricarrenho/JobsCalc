@@ -2,10 +2,9 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.h1`
   ${({ theme }) => css`
-    color: ${theme.colors.gray800};
     font-size: ${theme.font.sizes.xlg};
     position: relative;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
 
     &::after {
       content: "";

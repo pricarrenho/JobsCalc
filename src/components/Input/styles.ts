@@ -4,7 +4,7 @@ export const Label = styled.label`
   ${({ theme }) => css`
     color: ${theme.colors.gray700};
     font-weight: 500;
-    line-height: 24px;
+    line-height: 1.5rem;
   `}
 `;
 
@@ -12,17 +12,16 @@ export const Input = styled.input`
   ${({ theme }) => css`
     background: ${theme.colors.neutral400};
     font-size: ${theme.font.sizes.sm};
-    font-family: ${theme.font.family};
     font-weight: 500;
     color: ${theme.colors.gray800};
     border: 1px solid ${theme.colors.neutral600};
     border-radius: 5px;
     width: 100%;
-    min-height: 56px;
-    padding-right: 16px;
-    padding-left: 16px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    min-height: 3.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     outline: none;
     box-sizing: border-box;
   `}

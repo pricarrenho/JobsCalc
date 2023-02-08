@@ -1,9 +1,22 @@
 import { Button } from "../Button";
 import teste from "../../assets/img/money.png";
-import * as S from "./styles";
 import { CardProps } from "./types";
+import { useNavigate } from "react-router-dom";
+import * as S from "./styles";
 
-export const Card = ({ children, active }: CardProps) => {
+export const Card = ({
+  children,
+  active,
+  name,
+  hoursPerDay,
+  totalHours,
+}: CardProps) => {
+  const navigate = useNavigate();
+
+  const handleChange = () => {
+    navigate("/home");
+  };
+
   return (
     <S.Wrapper>
       <S.Content>
@@ -17,7 +30,13 @@ export const Card = ({ children, active }: CardProps) => {
       </S.Content>
 
       <S.ButtonDiv>
-        <Button styleType="green">SALVAR</Button>
+        <Button
+          styleType="green"
+          onClick={handleChange}
+          disabled={!name || !hoursPerDay || !totalHours}
+        >
+          SALVAR
+        </Button>
         <Button styleType="gray" icon="trash"></Button>
       </S.ButtonDiv>
     </S.Wrapper>

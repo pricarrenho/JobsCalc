@@ -7,9 +7,12 @@ import { Title } from "../../components/Title";
 import { convertToCurrency } from "../../utils/convertCurrency";
 import yourPhoto from "../../assets/img/photo.png";
 import * as S from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export const MyProfile = () => {
-  const [name, setName] = useState("");
+  const navigate = useNavigate();
+
+  const [yourName, setYourName] = useState("");
   const [photo, setPhoto] = useState("");
   const [value, setValue] = useState("");
   const [hours, setHours] = useState("");
@@ -19,6 +22,12 @@ export const MyProfile = () => {
   const dataFilled = value && days && hours;
 
   const valorTotal = (Number(value) / Number(days) / Number(hours)).toFixed(2);
+
+  const secondText = "Salve";
+
+  const handleChange = () => {
+    navigate("/home");
+  };
 
   return (
     <div>
@@ -38,7 +47,7 @@ export const MyProfile = () => {
                 alt="Imagem com uma camera e o texto 'Sua foto aqui' embaixo"
               />
             )}
-            <h2>{name}</h2>
+            <h2>{yourName}</h2>
 
             <p>
               {dataFilled ? (
@@ -51,7 +60,13 @@ export const MyProfile = () => {
               )}
             </p>
 
-            <Button styleType="green" fullWidth>
+            <Button
+              styleType="green"
+              fullWidth
+              secondText={secondText}
+              onClick={handleChange}
+              disabled={!yourName || !value || !hours || !days || !weeks}
+            >
               Salvar Dados
             </Button>
           </S.LeftContentCard>
@@ -60,7 +75,12 @@ export const MyProfile = () => {
             <Title>Dados do perfil</Title>
 
             <S.InputFirstContent>
-              <Input label="Nome" name="name" type="text" onChange={setName} />
+              <Input
+                label="Nome"
+                name="name"
+                type="text"
+                onChange={setYourName}
+              />
 
               <Input
                 label="Link da foto"

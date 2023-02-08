@@ -45,6 +45,9 @@ export const AddNewJob = () => {
           <Card
             children="Preencha os dados ao lado para ver o valor do projeto"
             active
+            name={name}
+            hoursPerDay={hoursPerDay}
+            totalHours={totalHours}
           />
         </S.Wrapper>
       </Container>

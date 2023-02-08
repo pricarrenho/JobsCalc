@@ -5,10 +5,10 @@ export const Wrapper = styled.div`
     background: ${theme.colors.neutral400};
     border: 1px solid ${theme.colors.neutral700};
     border-radius: 8px;
-    padding: 40px;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 1rem;
   `}
 `;
 
@@ -16,7 +16,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 `;
 
 export const Text = styled.p`
@@ -48,7 +48,7 @@ export const Img = styled.img<ImgProps>`
 export const ButtonDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1rem;
 
   button {
     width: 80%;

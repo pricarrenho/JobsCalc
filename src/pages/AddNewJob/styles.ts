@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 48px;
-  margin-top: 64px;
+  gap: 3rem;
+  margin-top: 4rem;
 `;
 
 export const Input = styled.div`
   display: flex;
-  gap: 18px;
+  gap: 1rem;
 `;

@@ -13,7 +13,7 @@ export const EditJob = () => {
 
   return (
     <div>
-      <Header title="Adicionar Novo Job" goBackHeader />
+      <Header title="Editar Job" goBackHeader />
 
       <Container>
         <S.Wrapper>
@@ -41,7 +41,12 @@ export const EditJob = () => {
             </S.Input>
           </div>
 
-          <Card children="Preencha os dados ao lado para ver o valor do projeto" />
+          <Card
+            children="Preencha os dados ao lado para ver o valor do projeto"
+            name={name}
+            hoursPerDay={hoursPerDay}
+            totalHours={totalHours}
+          />
         </S.Wrapper>
       </Container>
     </div>

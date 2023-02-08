@@ -28,11 +28,11 @@ export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
           <div>
             <Logo />
           </div>
-          <div>
+          <S.Alert>
             <h2>
               <Alert /> {title}
             </h2>
-          </div>
+          </S.Alert>
           <S.ContentRight>
             <div>
               <h2>Priscilla</h2>
