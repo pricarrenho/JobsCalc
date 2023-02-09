@@ -37,13 +37,11 @@ export const MiddleContents = styled.div`
     span {
       color: ${theme.colors.gray600};
       font-weight: 600;
-      line-height: 22px;
     }
 
     p {
       color: ${theme.colors.gray700};
       font-weight: 600;
-      line-height: 26px;
     }
   `}
 `;

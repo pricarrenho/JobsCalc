@@ -27,6 +27,13 @@ export const GlobalStyle = createGlobalStyle`
       color: ${theme.colors.gray800};
     }
 
+    p,
+    span,
+    label {
+      font-weight: 500;
+      line-height: 1.5rem;
+    }
+
     a {
       text-decoration: none;
     }

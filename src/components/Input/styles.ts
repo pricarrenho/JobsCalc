@@ -4,7 +4,6 @@ export const Label = styled.label`
   ${({ theme }) => css`
     color: ${theme.colors.gray700};
     font-weight: 500;
-    line-height: 1.5rem;
   `}
 `;
 

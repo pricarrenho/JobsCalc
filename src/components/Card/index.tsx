@@ -1,7 +1,9 @@
 import { Button } from "../Button";
-import teste from "../../assets/img/money.png";
+import money from "../../assets/img/money.png";
 import { CardProps } from "./types";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../context/GlobalContext";
+import { CardJob } from "../CardJob";
 import * as S from "./styles";
 
 export const Card = ({
@@ -12,16 +14,19 @@ export const Card = ({
   totalHours,
 }: CardProps) => {
   const navigate = useNavigate();
+  const { setNameJob, setComponent, component } = useGlobalContext();
 
-  const handleChange = () => {
+  const handleClick = () => {
     navigate("/home");
+    setNameJob(name);
+    setComponent([...component, <CardJob />]);
   };
 
   return (
     <S.Wrapper>
       <S.Content>
         <S.Img
-          src={teste}
+          src={money}
           alt="Imagem de notas de dinheiro amarradas"
           active={active}
         />
@@ -32,8 +37,8 @@ export const Card = ({
       <S.ButtonDiv>
         <Button
           styleType="green"
-          onClick={handleChange}
-          disabled={!name || !hoursPerDay || !totalHours}
+          onClick={handleClick}
+          // disabled={!name || !hoursPerDay || !totalHours}
         >
           SALVAR
         </Button>

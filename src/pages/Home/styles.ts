@@ -1,7 +1,12 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  background: linear-gradient(#41414c 176px, #f0f2f5 176px);
+  background: #41414c;
+  padding-bottom: 41px;
+`;
+
+export const WrapperContent = styled.div`
+  margin-top: -48px;
 `;
 
 export const Container = styled.div`
@@ -33,7 +38,6 @@ export const Content = styled.div`
     display: flex;
     align-content: center;
     gap: 2.5rem;
-    line-height: 26px;
 
     span {
       color: ${theme.colors.white};

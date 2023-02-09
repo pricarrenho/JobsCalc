@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
-import { CardJob } from "../../components/CardJob";
 import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
+import { Modal } from "../../components/Modal";
+import { useGlobalContext } from "../../context/GlobalContext";
 import * as S from "./styles";
 
 export const Home = () => {
   const navigate = useNavigate();
+  const { component } = useGlobalContext();
 
   const handleClick = () => {
     navigate("/add-new-job");
@@ -14,6 +16,7 @@ export const Home = () => {
 
   return (
     <div>
+      <Modal />
       <Header title="Esse é um teste" />
       <S.Wrapper>
         <Container>
@@ -38,8 +41,8 @@ export const Home = () => {
             </Button>
           </S.Container>
         </Container>
-        <CardJob />
       </S.Wrapper>
+      <S.WrapperContent>{component.map((item) => item)}</S.WrapperContent>
     </div>
   );
 };

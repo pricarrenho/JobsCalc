@@ -5,9 +5,12 @@ import { Logo } from "../Logo";
 import { Alert } from "../../assets/svg/Alert";
 import { Link as LinkRoutes } from "react-router-dom";
 import yourPhoto from "../../assets/img/photo.png";
+import { useGlobalContext } from "../../context/GlobalContext";
 import * as S from "./styles";
 
 export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
+  const { profileName, profilePhoto } = useGlobalContext();
+
   if (goBackHeader) {
     return (
       <S.Container>
@@ -35,14 +38,21 @@ export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
           </S.Alert>
           <S.ContentRight>
             <div>
-              <h2>Priscilla</h2>
+              <h2>{profileName}</h2>
               <LinkRoutes to="/">Ver Perfil</LinkRoutes>
             </div>
             <div>
-              <S.Img
-                src={yourPhoto}
-                alt="Imagem com uma camera e o texto 'Sua foto aqui' embaixo"
-              />
+              {profilePhoto ? (
+                <S.Img
+                  src={profilePhoto}
+                  alt="Imagem da foto selecionada pelo usuário"
+                />
+              ) : (
+                <S.Img
+                  src={yourPhoto}
+                  alt="Imagem com uma camera e o texto 'Sua foto aqui' embaixo"
+                />
+              )}
             </div>
           </S.ContentRight>
         </S.Wrapper>

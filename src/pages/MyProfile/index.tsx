@@ -8,9 +8,11 @@ import { convertToCurrency } from "../../utils/convertCurrency";
 import yourPhoto from "../../assets/img/photo.png";
 import * as S from "./styles";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 export const MyProfile = () => {
   const navigate = useNavigate();
+  const { setProfileName, setProfilePhoto } = useGlobalContext();
 
   const [yourName, setYourName] = useState("");
   const [photo, setPhoto] = useState("");
@@ -25,8 +27,10 @@ export const MyProfile = () => {
 
   const secondText = "Salve";
 
-  const handleChange = () => {
+  const handleClick = () => {
     navigate("/home");
+    setProfileName(yourName);
+    setProfilePhoto(photo);
   };
 
   return (
@@ -64,8 +68,8 @@ export const MyProfile = () => {
               styleType="green"
               fullWidth
               secondText={secondText}
-              onClick={handleChange}
-              disabled={!yourName || !value || !hours || !days || !weeks}
+              onClick={handleClick}
+              // disabled={!yourName || !value || !hours || !days || !weeks}
             >
               Salvar Dados
             </Button>

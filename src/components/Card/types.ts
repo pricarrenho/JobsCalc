@@ -1,7 +1,7 @@
 export type CardProps = {
   children: string;
   active?: boolean;
-  name?: string;
+  name: string;
   hoursPerDay?: string;
   totalHours?: string;
 };
