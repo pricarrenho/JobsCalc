@@ -43,9 +43,7 @@ export const EditJob = () => {
 
           <Card
             children="Preencha os dados ao lado para ver o valor do projeto"
-            name={name}
-            hoursPerDay={hoursPerDay}
-            totalHours={totalHours}
+            handleSubmit={() => undefined}
           />
         </S.Wrapper>
       </Container>

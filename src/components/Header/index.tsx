@@ -48,7 +48,8 @@ export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
           <S.ContentRight>
             <div>
               <h2>{profileName}</h2>
-              <Link to="/">Ver Perfil</Link>
+              <Link to="/my-perfil">Perfil</Link>
+              {/* <Link to="/my-perfil">Ver Perfil</Link> */}
             </div>
             <div>
               <S.Img

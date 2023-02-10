@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
+import { CardJob } from "../../components/CardJob";
 import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
 import { Modal } from "../../components/Modal";
@@ -8,41 +9,59 @@ import * as S from "./styles";
 
 export const Home = () => {
   const navigate = useNavigate();
-  const { component, openModal } = useGlobalContext();
+  const { openModal, jobList } = useGlobalContext();
 
-  const handleClick = () => {
+  const handleMakePerfil = () => {
+    navigate("/my-perfil");
+  };
+
+  const handleAddJob = () => {
     navigate("/add-new-job");
   };
 
   return (
     <div>
       {openModal && <Modal />}
-      <Header title="Esse é um teste" />
+      <Header />
       <S.Wrapper>
         <Container>
           <S.Container>
             <S.Content>
               <div>
-                <span>12</span>
+                <span>0</span>
                 <p>Projetos ao total</p>
               </div>
               <div>
-                <span>7</span>
+                <span>0</span>
                 <p>Em andamento</p>
               </div>
               <div>
-                <span>4</span>
+                <span>0</span>
                 <p>Encerrados</p>
               </div>
             </S.Content>
 
-            <Button styleType="orange" icon="plusSign" onClick={handleClick}>
+            <Button styleType="orange" onClick={handleMakePerfil}>
+              Faça seu perfil para começar
+            </Button>
+
+            <Button styleType="orange" icon="plusSign" onClick={handleAddJob}>
               Acionar Novo Job
             </Button>
           </S.Container>
         </Container>
       </S.Wrapper>
-      <S.WrapperContent>{component.map((item) => item)}</S.WrapperContent>
+
+      {jobList.map((value, index) => (
+        <S.WrapperContent key={value.id}>
+          <CardJob
+            id={index + 1}
+            name={value.name}
+            daysLeft={value.daysLeft}
+            value={value.value}
+          />
+        </S.WrapperContent>
+      ))}
     </div>
   );
 };

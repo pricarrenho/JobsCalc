@@ -13,6 +13,7 @@ export const Modal = () => {
   const handleClickDelete = () => {
     console.log("handleClickDelete");
   };
+
   return (
     <S.Wrapper>
       <S.Container>

@@ -3,12 +3,12 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import { convertToCurrency } from "../../utils/convertCurrency";
 import { Button } from "../Button";
 import { Container } from "../Container";
+import { CardJobProps } from "./types";
 import * as S from "./styles";
 
-export const CardJob = () => {
+export const CardJob = ({ id, name, daysLeft, value }: CardJobProps) => {
   const navigate = useNavigate();
-  const { nameJob, setOpenModal, deadline, valueJob, totalJobHours } =
-    useGlobalContext();
+  const { setOpenModal } = useGlobalContext();
 
   const handleClickEdit = () => {
     navigate("/edit-job");
@@ -18,22 +18,16 @@ export const CardJob = () => {
     setOpenModal(true);
   };
 
-  const value = valueJob * totalJobHours;
-
   return (
     <Container>
       <S.Wrapper>
         <S.FirstContent>
-          <span>1</span>
-          <h2>{nameJob}</h2>
+          <span>{id}</span>
+          <h2>{name}</h2>
         </S.FirstContent>
         <S.MiddleContents>
           <span>Prazo</span>
-          {deadline === 1 ? (
-            <p>{deadline} dia para entrega</p>
-          ) : (
-            <p>{deadline} dias para entrega</p>
-          )}
+          <p>{daysLeft} dias para entrega</p>
         </S.MiddleContents>
         <S.MiddleContents>
           <span>Valor</span>

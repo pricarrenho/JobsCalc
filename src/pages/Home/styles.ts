@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
 
 export const WrapperContent = styled.div`
   margin-top: -3rem;
+  margin-bottom: 4rem;
 `;
 
 export const Container = styled.div`
@@ -19,7 +20,7 @@ export const Container = styled.div`
     display: flex;
     gap: 2rem;
     align-items: center;
-    padding: 1rem 2rem 1rem 0.5rem;
+    padding: 1rem;
   }
 `;
 

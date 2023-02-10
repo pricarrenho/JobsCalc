@@ -1,32 +1,9 @@
 import { Button } from "../Button";
-import money from "../../assets/img/money.png";
 import { CardProps } from "./types";
-import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../../context/GlobalContext";
-import { CardJob } from "../CardJob";
+import money from "../../assets/img/money.png";
 import * as S from "./styles";
 
-export const Card = ({
-  children,
-  active,
-  name,
-  hoursPerDay,
-  totalHours,
-}: CardProps) => {
-  const navigate = useNavigate();
-  const { setNameJob, setComponent, component, setDeadline, setTotalJobHours } =
-    useGlobalContext();
-
-  const totalDays = Number(totalHours) / Number(hoursPerDay);
-
-  const handleClick = () => {
-    navigate("/home");
-    setNameJob(name);
-    setComponent([...component, <CardJob />]);
-    setDeadline(totalDays);
-    setTotalJobHours(Number(totalHours));
-  };
-
+export const Card = ({ children, active, handleSubmit }: CardProps) => {
   return (
     <S.Wrapper>
       <S.Content>
@@ -40,11 +17,7 @@ export const Card = ({
       </S.Content>
 
       <S.ButtonDiv>
-        <Button
-          styleType="green"
-          onClick={handleClick}
-          // disabled={!name || !hoursPerDay || !totalHours}
-        >
+        <Button styleType="green" onClick={handleSubmit}>
           SALVAR
         </Button>
         <Button styleType="gray" icon="trash"></Button>

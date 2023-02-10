@@ -5,14 +5,15 @@ import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Title } from "../../components/Title";
 import { convertToCurrency } from "../../utils/convertCurrency";
-import yourPhoto from "../../assets/img/photo.png";
-import * as S from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
+import yourPhoto from "../../assets/img/photo.png";
+import * as S from "./styles";
 
 export const MyProfile = () => {
   const navigate = useNavigate();
-  const { setProfileName, setProfilePhoto, setValueJob } = useGlobalContext();
+  const { setProfileName, setProfilePhoto, setUseValueHour } =
+    useGlobalContext();
 
   const [yourName, setYourName] = useState("");
   const [photo, setPhoto] = useState("");
@@ -23,15 +24,15 @@ export const MyProfile = () => {
 
   const dataFilled = value && days && hours;
 
-  const valorTotal = (Number(value) / Number(days) / Number(hours)).toFixed(2);
+  const valueHour = (Number(value) / Number(days) / Number(hours)).toFixed(2);
 
   const secondText = "Salve";
 
   const handleClick = () => {
-    navigate("/home");
+    navigate("/");
     setProfileName(yourName);
     setProfilePhoto(photo);
-    setValueJob(Number(valorTotal));
+    setUseValueHour(valueHour);
   };
 
   return (
@@ -55,7 +56,7 @@ export const MyProfile = () => {
               {dataFilled ? (
                 <>
                   O valor da sua hora é{" "}
-                  <span>{convertToCurrency(valorTotal)}</span>
+                  <span>{convertToCurrency(valueHour)}</span>
                 </>
               ) : (
                 "Preencha os campos para saber seu valor/hora."
