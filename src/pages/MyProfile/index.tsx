@@ -12,7 +12,7 @@ import { useGlobalContext } from "../../context/GlobalContext";
 
 export const MyProfile = () => {
   const navigate = useNavigate();
-  const { setProfileName, setProfilePhoto } = useGlobalContext();
+  const { setProfileName, setProfilePhoto, setValueJob } = useGlobalContext();
 
   const [yourName, setYourName] = useState("");
   const [photo, setPhoto] = useState("");
@@ -31,6 +31,7 @@ export const MyProfile = () => {
     navigate("/home");
     setProfileName(yourName);
     setProfilePhoto(photo);
+    setValueJob(Number(valorTotal));
   };
 
   return (
@@ -46,10 +47,7 @@ export const MyProfile = () => {
                 alt="Imagem da foto selecionada pelo usuário"
               />
             ) : (
-              <S.Img
-                src={yourPhoto}
-                alt="Imagem com uma camera e o texto 'Sua foto aqui' embaixo"
-              />
+              <S.Img src={yourPhoto} alt="Imagem do ícone de um usuário" />
             )}
             <h2>{yourName}</h2>
 

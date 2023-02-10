@@ -67,6 +67,6 @@ export const ContentButtons = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
   `}
 `;

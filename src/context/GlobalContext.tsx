@@ -1,20 +1,6 @@
-import { createContext, ReactElement, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { CardJob } from "../components/CardJob";
-
-export type GlobalContextType = {
-  profileName: string;
-  setProfileName: (value: string) => void;
-  profilePhoto: string;
-  setProfilePhoto: (value: string) => void;
-  nameJob: string;
-  setNameJob: (value: string) => void;
-  component: ReactElement[];
-  setComponent: ([]) => void;
-};
-
-export type GlobalProviderProps = {
-  children: ReactElement;
-};
+import { GlobalContextType, GlobalProviderProps } from "./types";
 
 export const GlobalContext = createContext<GlobalContextType>(
   {} as GlobalContextType
@@ -25,8 +11,10 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
   const [profilePhoto, setProfilePhoto] = useState("");
   const [nameJob, setNameJob] = useState("");
   const [component, setComponent] = useState([<CardJob />]);
-
-  console.log(component);
+  const [openModal, setOpenModal] = useState(false);
+  const [deadline, setDeadline] = useState(0);
+  const [valueJob, setValueJob] = useState(0);
+  const [totalJobHours, setTotalJobHours] = useState(0);
 
   return (
     <GlobalContext.Provider
@@ -39,6 +27,14 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
         setNameJob,
         component,
         setComponent,
+        openModal,
+        setOpenModal,
+        deadline,
+        setDeadline,
+        valueJob,
+        setValueJob,
+        totalJobHours,
+        setTotalJobHours,
       }}
     >
       {children}

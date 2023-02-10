@@ -14,12 +14,17 @@ export const Card = ({
   totalHours,
 }: CardProps) => {
   const navigate = useNavigate();
-  const { setNameJob, setComponent, component } = useGlobalContext();
+  const { setNameJob, setComponent, component, setDeadline, setTotalJobHours } =
+    useGlobalContext();
+
+  const totalDays = Number(totalHours) / Number(hoursPerDay);
 
   const handleClick = () => {
     navigate("/home");
     setNameJob(name);
     setComponent([...component, <CardJob />]);
+    setDeadline(totalDays);
+    setTotalJobHours(Number(totalHours));
   };
 
   return (

@@ -1,16 +1,24 @@
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
+import { convertToCurrency } from "../../utils/convertCurrency";
 import { Button } from "../Button";
 import { Container } from "../Container";
 import * as S from "./styles";
 
 export const CardJob = () => {
   const navigate = useNavigate();
-  const { nameJob } = useGlobalContext();
+  const { nameJob, setOpenModal, deadline, valueJob, totalJobHours } =
+    useGlobalContext();
 
-  const handleClick = () => {
+  const handleClickEdit = () => {
     navigate("/edit-job");
   };
+
+  const handleClickDelete = () => {
+    setOpenModal(true);
+  };
+
+  const value = valueJob * totalJobHours;
 
   return (
     <Container>
@@ -21,11 +29,15 @@ export const CardJob = () => {
         </S.FirstContent>
         <S.MiddleContents>
           <span>Prazo</span>
-          <p>3 dias para entrega</p>{" "}
+          {deadline === 1 ? (
+            <p>{deadline} dia para entrega</p>
+          ) : (
+            <p>{deadline} dias para entrega</p>
+          )}
         </S.MiddleContents>
         <S.MiddleContents>
           <span>Valor</span>
-          <p>R$ 4500,00</p>
+          <p>{convertToCurrency(value)}</p>
         </S.MiddleContents>
         <S.ContainerStatus>
           <S.ContentStatus>
@@ -37,9 +49,14 @@ export const CardJob = () => {
             styleType="white"
             icon="pencil"
             fullWidth
-            onClick={handleClick}
+            onClick={handleClickEdit}
           />
-          <Button styleType="white" icon="trash" fullWidth />
+          <Button
+            styleType="white"
+            icon="trash"
+            fullWidth
+            onClick={handleClickDelete}
+          />
         </S.ContentButtons>
       </S.Wrapper>
     </Container>

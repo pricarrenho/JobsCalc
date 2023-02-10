@@ -25,17 +25,32 @@ export const WrapperGoBackHeader = styled.div`
   `}
 `;
 
+export const Button = styled.button`
+  background: none;
+  border: none;
+`;
+
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 5.5rem;
+    position: relative;
 
     h2 {
       color: ${theme.colors.gray600};
       font-size: ${theme.font.sizes.sm};
       font-weight: 600;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 0px;
+      border: 1.5px solid #4f4f5b;
+      bottom: -10px;
     }
   `}
 `;
@@ -44,7 +59,7 @@ export const Alert = styled.div`
   h2 {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
   }
 `;
 

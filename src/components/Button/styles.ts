@@ -22,6 +22,7 @@ const WrapperModifier = {
 
   gray: (theme: DefaultTheme) => css`
     background-color: ${theme.colors.neutral700};
+    color: ${theme.colors.gray700};
 
     &:hover {
       background-color: ${theme.colors.neutral300};

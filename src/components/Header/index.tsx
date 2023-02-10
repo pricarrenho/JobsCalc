@@ -1,22 +1,31 @@
 import { HeaderProps } from "./types";
-import { Link } from "../Link";
 import { Container } from "../Container";
 import { Logo } from "../Logo";
 import { Alert } from "../../assets/svg/Alert";
-import { Link as LinkRoutes } from "react-router-dom";
-import yourPhoto from "../../assets/img/photo.png";
+import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
+import yourPhoto from "../../assets/img/photo.png";
+import { ArrowLeft } from "../../assets/svg/ArrowLeft";
 import * as S from "./styles";
 
 export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
   const { profileName, profilePhoto } = useGlobalContext();
+
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   if (goBackHeader) {
     return (
       <S.Container>
         <Container>
           <S.WrapperGoBackHeader>
-            <Link to="/home" icon="ArrowLeft"></Link>
+            <S.Button onClick={handleGoBack}>
+              <ArrowLeft color="#BFBFCC" />
+            </S.Button>
+
             <h2>{title}</h2>
           </S.WrapperGoBackHeader>
         </Container>
@@ -39,20 +48,13 @@ export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
           <S.ContentRight>
             <div>
               <h2>{profileName}</h2>
-              <LinkRoutes to="/">Ver Perfil</LinkRoutes>
+              <Link to="/">Ver Perfil</Link>
             </div>
             <div>
-              {profilePhoto ? (
-                <S.Img
-                  src={profilePhoto}
-                  alt="Imagem da foto selecionada pelo usuário"
-                />
-              ) : (
-                <S.Img
-                  src={yourPhoto}
-                  alt="Imagem com uma camera e o texto 'Sua foto aqui' embaixo"
-                />
-              )}
+              <S.Img
+                src={profilePhoto || yourPhoto}
+                alt="Imagem da foto selecionada pelo usuário"
+              />
             </div>
           </S.ContentRight>
         </S.Wrapper>

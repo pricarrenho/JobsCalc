@@ -8,7 +8,7 @@ import * as S from "./styles";
 
 export const Home = () => {
   const navigate = useNavigate();
-  const { component } = useGlobalContext();
+  const { component, openModal } = useGlobalContext();
 
   const handleClick = () => {
     navigate("/add-new-job");
@@ -16,7 +16,7 @@ export const Home = () => {
 
   return (
     <div>
-      <Modal />
+      {openModal && <Modal />}
       <Header title="Esse é um teste" />
       <S.Wrapper>
         <Container>
