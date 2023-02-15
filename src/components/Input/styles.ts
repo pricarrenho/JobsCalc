@@ -23,17 +23,13 @@ export const Input = styled.input`
     margin-bottom: 1rem;
     outline: none;
     box-sizing: border-box;
+
+    &:hover {
+      border-color: ${theme.colors.gray600};
+    }
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
   `}
-
-  &:hover {
-    border-color: #bfbfcc;
-  }
-
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-
-  &::placeholder {
-    color: #bfbfcc;
-  }
 `;

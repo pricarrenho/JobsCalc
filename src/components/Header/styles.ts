@@ -49,7 +49,7 @@ export const Wrapper = styled.div`
       position: absolute;
       width: 100%;
       height: 0px;
-      border: 1.5px solid #4f4f5b;
+      border: 1.5px solid ${theme.colors.gray800};
       bottom: -10px;
     }
   `}
@@ -76,6 +76,11 @@ export const ContentRight = styled.div`
     a {
       color: ${theme.colors.gray600};
       font-size: ${theme.font.sizes.xsm};
+
+      &:hover {
+        color: ${theme.colors.orange800};
+        text-decoration: underline;
+      }
     }
   `}
 `;

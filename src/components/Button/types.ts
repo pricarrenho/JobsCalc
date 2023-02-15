@@ -10,6 +10,5 @@ export type ButtonProps = {
   fullWidth?: boolean;
   icon?: "trash" | "plusSign" | "pencil";
   to?: string;
-  secondText?: string;
   as?: React.ElementType;
 } & ButtonType;

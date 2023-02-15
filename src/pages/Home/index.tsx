@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { CardJob } from "../../components/CardJob";
@@ -9,7 +10,14 @@ import * as S from "./styles";
 
 export const Home = () => {
   const navigate = useNavigate();
-  const { openModal, jobList } = useGlobalContext();
+  const { jobList, profileData, handleJobList } = useGlobalContext();
+  const [showModal, setShowModal] = useState<string | undefined>();
+
+  const statusStarted = jobList?.filter(
+    (item) => item.jobsStatus === "started"
+  );
+
+  const statusDone = jobList?.filter((item) => item.jobsStatus === "done");
 
   const handleMakePerfil = () => {
     navigate("/my-perfil");
@@ -19,46 +27,68 @@ export const Home = () => {
     navigate("/add-new-job");
   };
 
+  const handleOpenModal = (value: string) => {
+    setShowModal(value);
+  };
+
+  const handleDelete = () => {
+    handleJobList(jobList.filter((value) => value.id !== showModal));
+    setShowModal(undefined);
+  };
+
+  const handleClose = () => {
+    setShowModal(undefined);
+  };
+
   return (
     <div>
-      {openModal && <Modal />}
+      <Modal
+        handleDelete={handleDelete}
+        show={!!showModal}
+        handleClose={handleClose}
+      />
       <Header />
       <S.Wrapper>
         <Container>
           <S.Container>
             <S.Content>
               <div>
-                <span>0</span>
-                <p>Projetos ao total</p>
+                <span>{jobList?.length | 0}</span>
+                <p>Projeto{jobList?.length > 1 && "s"} ao total</p>
               </div>
               <div>
-                <span>0</span>
+                <span>{statusStarted?.length | 0}</span>
                 <p>Em andamento</p>
               </div>
               <div>
-                <span>0</span>
-                <p>Encerrados</p>
+                <span>{statusDone?.length | 0}</span>
+                <p>Encerrado{statusDone?.length > 1 && "s"} </p>
               </div>
             </S.Content>
 
-            <Button styleType="orange" onClick={handleMakePerfil}>
-              Faça seu perfil para começar
-            </Button>
-
-            <Button styleType="orange" icon="plusSign" onClick={handleAddJob}>
-              Acionar Novo Job
-            </Button>
+            {profileData ? (
+              <Button styleType="orange" icon="plusSign" onClick={handleAddJob}>
+                Acionar Novo Job
+              </Button>
+            ) : (
+              <Button styleType="orange" onClick={handleMakePerfil}>
+                Faça seu perfil para começar
+              </Button>
+            )}
           </S.Container>
         </Container>
       </S.Wrapper>
 
-      {jobList.map((value, index) => (
+      {jobList?.map((value, index) => (
         <S.WrapperContent key={value.id}>
           <CardJob
-            id={index + 1}
+            deleteButton={() => handleOpenModal(value.id)}
+            id={value.id}
+            position={index + 1}
             name={value.name}
             daysLeft={value.daysLeft}
             value={value.value}
+            jobsStatus={value.jobsStatus}
           />
         </S.WrapperContent>
       ))}

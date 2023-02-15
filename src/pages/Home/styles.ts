@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  background: #41414c;
-  padding-bottom: 2.5rem;
+  ${({ theme }) => css`
+    background: ${theme.colors.gray900};
+    padding-bottom: 2.5rem;
+  `}
 `;
 
 export const WrapperContent = styled.div`

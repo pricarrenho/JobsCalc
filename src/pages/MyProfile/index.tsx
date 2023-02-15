@@ -12,28 +12,43 @@ import * as S from "./styles";
 
 export const MyProfile = () => {
   const navigate = useNavigate();
-  const { setProfileName, setProfilePhoto, setUseValueHour } =
-    useGlobalContext();
+  const { handleProfileData, profileData } = useGlobalContext();
 
-  const [yourName, setYourName] = useState("");
-  const [photo, setPhoto] = useState("");
-  const [value, setValue] = useState("");
-  const [hours, setHours] = useState("");
-  const [days, setDays] = useState("");
-  const [weeks, setWeeks] = useState("");
+  const [profileName, setProfileName] = useState(profileData?.name || "");
+  const [photo, setPhoto] = useState(profileData?.photo || "");
+  const [valueMonth, setValueMonth] = useState(profileData?.valueMonth || "");
+  const [hoursPerDay, setHoursPerDay] = useState(
+    profileData?.hoursPerDay || ""
+  );
+  const [daysAWeek, setDaysAWeek] = useState(profileData?.daysWeek || "");
+  const [vacationWeeks, setVacationWeeks] = useState(
+    profileData?.vacationWeeks || ""
+  );
 
-  const dataFilled = value && days && hours;
+  const dataFilled = valueMonth && daysAWeek && hoursPerDay;
 
-  const valueHour = (Number(value) / Number(days) / Number(hours)).toFixed(2);
-
-  const secondText = "Salve";
+  const valuePerDay = (
+    Number(valueMonth) /
+    Number(daysAWeek) /
+    Number(hoursPerDay)
+  ).toFixed(2);
 
   const handleClick = () => {
+    handleProfileData({
+      name: profileName,
+      photo: photo,
+      valueMonth: valueMonth,
+      hoursPerDay: hoursPerDay,
+      daysWeek: daysAWeek,
+      vacationWeeks: vacationWeeks,
+      valuePerDay: valuePerDay,
+    });
+
     navigate("/");
-    setProfileName(yourName);
-    setProfilePhoto(photo);
-    setUseValueHour(valueHour);
   };
+
+  const disabledButton =
+    !profileName || !valueMonth || !hoursPerDay || !daysAWeek || !vacationWeeks;
 
   return (
     <div>
@@ -50,13 +65,13 @@ export const MyProfile = () => {
             ) : (
               <S.Img src={yourPhoto} alt="Imagem do ícone de um usuário" />
             )}
-            <h2>{yourName}</h2>
+            <h2>{profileName}</h2>
 
             <p>
               {dataFilled ? (
                 <>
                   O valor da sua hora é{" "}
-                  <span>{convertToCurrency(valueHour)}</span>
+                  <span>{convertToCurrency(valuePerDay)}</span>
                 </>
               ) : (
                 "Preencha os campos para saber seu valor/hora."
@@ -66,9 +81,8 @@ export const MyProfile = () => {
             <Button
               styleType="green"
               fullWidth
-              secondText={secondText}
               onClick={handleClick}
-              // disabled={!yourName || !value || !hours || !days || !weeks}
+              disabled={disabledButton}
             >
               Salvar Dados
             </Button>
@@ -79,15 +93,17 @@ export const MyProfile = () => {
 
             <S.InputFirstContent>
               <Input
+                value={profileName}
                 label="Nome"
                 name="name"
                 type="text"
-                onChange={setYourName}
+                onChange={setProfileName}
               />
 
               <Input
+                value={photo}
                 label="Link da foto"
-                name="name"
+                name="photo"
                 type="text"
                 onChange={setPhoto}
               />
@@ -97,32 +113,36 @@ export const MyProfile = () => {
 
             <S.InputSecondContent>
               <Input
+                value={valueMonth}
                 label="Quanto eu<br />quero ganhar por mês?"
                 placeholder="R$"
-                name="planning"
+                name="value"
                 type="text"
-                onChange={setValue}
+                onChange={setValueMonth}
               />
 
               <Input
+                value={hoursPerDay}
                 label="Quantas horas<br />quero trabalhar por dia?"
                 name="hours"
                 type="number"
-                onChange={setHours}
+                onChange={setHoursPerDay}
               />
 
               <Input
+                value={daysAWeek}
                 label="Quantos dias quero<br />trabalhar por semana?"
                 name="days"
                 type="number"
-                onChange={setDays}
+                onChange={setDaysAWeek}
               />
 
               <Input
+                value={vacationWeeks}
                 label="Quantas semanas<br />por ano você quer tirar férias?"
                 name="weeks"
                 type="number"
-                onChange={setWeeks}
+                onChange={setVacationWeeks}
               />
             </S.InputSecondContent>
           </div>

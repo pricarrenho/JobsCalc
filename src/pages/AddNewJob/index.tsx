@@ -7,27 +7,41 @@ import { Input } from "../../components/Input";
 import { Title } from "../../components/Title";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { v4 as uuidv4 } from "uuid";
+import { InputRadio } from "../../components/InputRadio";
 import * as S from "./styles";
 
 export const AddNewJob = () => {
   const navigate = useNavigate();
+  const { jobList, profileData, handleJobList } = useGlobalContext();
+
   const [name, setName] = useState("");
   const [hoursPerDay, setHoursPerDay] = useState("");
   const [totalHours, setTotalHours] = useState("");
-  const { setJobList, useValueHour, jobList } = useGlobalContext();
+  const [jobsStatus, setJobsStatus] = useState<"pendent" | "started" | "done">(
+    "pendent"
+  );
 
-  const totalHourJob = Math.ceil(Number(totalHours) / Number(hoursPerDay));
-  const totalValue = Number(useValueHour) * Number(totalHours);
+  const daysLeft = Math.ceil(Number(totalHours) / Number(hoursPerDay));
+  const valuePerHour = profileData?.valuePerDay;
+  const totalValue = Number(valuePerHour) * Number(totalHours);
 
   const handleClick = () => {
     const jobs = {
       id: uuidv4(),
       name: name,
-      daysLeft: totalHourJob,
+      daysLeft: daysLeft,
       value: totalValue,
+      hoursPerDay: hoursPerDay,
+      totalHours: totalHours,
+      jobsStatus: jobsStatus,
     };
 
-    setJobList([...jobList, jobs]);
+    if (jobList) {
+      handleJobList([...jobList, jobs]);
+    } else {
+      handleJobList([jobs]);
+    }
+
     navigate("/");
   };
 
@@ -40,6 +54,7 @@ export const AddNewJob = () => {
           <div>
             <Title children="Dados do Job" />
             <Input
+              value={name}
               label="Nome do Job"
               name="name"
               type="text"
@@ -48,18 +63,34 @@ export const AddNewJob = () => {
 
             <S.Input>
               <Input
+                value={hoursPerDay}
                 label="Quantas horas<br />por dia vai dedicar ao Job?"
                 name="hoursPerDay"
                 type="number"
                 onChange={setHoursPerDay}
               />
               <Input
+                value={totalHours}
                 label="Estimativa de<br />horas para esse job"
                 name="totalHours"
                 type="number"
                 onChange={setTotalHours}
               />
             </S.Input>
+
+            <Title>Escola o status do Job</Title>
+            <S.InputCheckBox>
+              <InputRadio
+                option={[
+                  { value: "pendent", label: "Não iniciado" },
+                  { value: "started", label: "Em andamento" },
+                  { value: "done", label: "Encerrado" },
+                ]}
+                value={jobsStatus}
+                name="opcao"
+                onChange={setJobsStatus}
+              />
+            </S.InputCheckBox>
           </div>
 
           <Card

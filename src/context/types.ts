@@ -5,16 +5,10 @@ export type GlobalProviderProps = {
 };
 
 export type GlobalContextType = {
-  profileName: string;
-  setProfileName: (value: string) => void;
-  profilePhoto: string;
-  setProfilePhoto: (value: string) => void;
-  openModal: boolean;
-  setOpenModal: (value: boolean) => void;
   jobList: JobsProps[];
-  setJobList: (value: JobsProps[]) => void;
-  useValueHour: string;
-  setUseValueHour: (value: string) => void;
+  profileData?: ProfileData;
+  handleProfileData: (value: ProfileData) => void;
+  handleJobList: (value: JobsProps[]) => void;
 };
 
 export type JobsProps = {
@@ -22,4 +16,17 @@ export type JobsProps = {
   name: string;
   daysLeft: number;
   value: number;
+  hoursPerDay: string;
+  totalHours: string;
+  jobsStatus: "pendent" | "started" | "done";
+};
+
+export type ProfileData = {
+  name: string;
+  photo: string;
+  valueMonth: string;
+  hoursPerDay: string;
+  daysWeek: string;
+  vacationWeeks: string;
+  valuePerDay: string;
 };

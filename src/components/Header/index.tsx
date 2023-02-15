@@ -9,9 +9,17 @@ import { ArrowLeft } from "../../assets/svg/ArrowLeft";
 import * as S from "./styles";
 
 export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
-  const { profileName, profilePhoto } = useGlobalContext();
-
+  const { profileData, jobList } = useGlobalContext();
   const navigate = useNavigate();
+
+  const hoursJobs = jobList?.reduce((prev, current) => {
+    if (current.jobsStatus === "started") {
+      return prev + Number(current.hoursPerDay);
+    }
+    return prev;
+  }, 0);
+
+  const hoursLeft = Number(profileData?.hoursPerDay) - hoursJobs;
 
   const handleGoBack = () => {
     navigate(-1);
@@ -42,18 +50,17 @@ export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
           </div>
           <S.Alert>
             <h2>
-              <Alert /> {title}
+              <Alert /> Você tem {hoursLeft | 0} horas livres no seu dia
             </h2>
           </S.Alert>
           <S.ContentRight>
             <div>
-              <h2>{profileName}</h2>
-              <Link to="/my-perfil">Perfil</Link>
-              {/* <Link to="/my-perfil">Ver Perfil</Link> */}
+              <h2>{profileData?.name}</h2>
+              <Link to="/my-perfil">Ver Perfil</Link>
             </div>
             <div>
               <S.Img
-                src={profilePhoto || yourPhoto}
+                src={profileData?.photo || yourPhoto}
                 alt="Imagem da foto selecionada pelo usuário"
               />
             </div>

@@ -1,30 +1,48 @@
-import { createContext, useContext, useState } from "react";
-import { GlobalContextType, GlobalProviderProps, JobsProps } from "./types";
+import { createContext, useContext, useEffect, useState } from "react";
+import {
+  getLocalStorageItem,
+  setLocalStorageItem,
+} from "../utils/localStorage";
+import {
+  GlobalContextType,
+  GlobalProviderProps,
+  JobsProps,
+  ProfileData,
+} from "./types";
 
 export const GlobalContext = createContext<GlobalContextType>(
   {} as GlobalContextType
 );
 
 export const GlobalProvider = ({ children }: GlobalProviderProps) => {
-  const [profileName, setProfileName] = useState("");
-  const [profilePhoto, setProfilePhoto] = useState("");
-  const [openModal, setOpenModal] = useState(false);
   const [jobList, setJobList] = useState<JobsProps[]>([]);
-  const [useValueHour, setUseValueHour] = useState("");
+  const [profileData, setProfileData] = useState<ProfileData>();
+
+  useEffect(() => {
+    const localStorageUserData = getLocalStorageItem("User");
+    setProfileData(localStorageUserData);
+
+    const localStorageJobsData = getLocalStorageItem("Jobs");
+    setJobList(localStorageJobsData);
+  }, []);
+
+  const handleProfileData = (value: ProfileData) => {
+    setProfileData(value);
+    setLocalStorageItem("User", value);
+  };
+
+  const handleJobList = (value: JobsProps[]) => {
+    setJobList(value);
+    setLocalStorageItem("Jobs", value);
+  };
 
   return (
     <GlobalContext.Provider
       value={{
-        profileName,
-        setProfileName,
-        profilePhoto,
-        setProfilePhoto,
-        openModal,
-        setOpenModal,
         jobList,
-        setJobList,
-        useValueHour,
-        setUseValueHour,
+        profileData,
+        handleProfileData,
+        handleJobList,
       }}
     >
       {children}

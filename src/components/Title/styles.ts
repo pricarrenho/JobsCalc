@@ -11,7 +11,7 @@ export const Wrapper = styled.h1`
       position: absolute;
       width: 100%;
       height: 0px;
-      border: 1.5px solid #e1e3e5;
+      border: 1.5px solid ${theme.colors.neutral600};
       bottom: -10px;
       left: 0px;
     }

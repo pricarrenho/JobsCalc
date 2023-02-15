@@ -6,12 +6,15 @@ export const Input = ({
   type,
   placeholder,
   label,
+  value,
   onChange,
 }: InputProps) => {
   return (
     <div>
       <S.Label htmlFor={name} dangerouslySetInnerHTML={{ __html: label }} />
       <S.Input
+        value={value}
+        id={name}
         name={name}
         type={type}
         placeholder={placeholder}

@@ -51,10 +51,10 @@ export const ButtonDiv = styled.div`
   gap: 1rem;
 
   button {
-    width: 80%;
+    width: 60%;
 
     &:last-of-type {
-      width: 20%;
+      width: 40%;
     }
   }
 `;

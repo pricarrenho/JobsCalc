@@ -1,18 +1,15 @@
 import { Trash } from "../../assets/svg/Trash";
-import { useGlobalContext } from "../../context/GlobalContext";
 import { Button } from "../Button";
 import * as S from "./styles";
 
-export const Modal = () => {
-  const { setOpenModal } = useGlobalContext();
+type ModalProps = {
+  handleDelete: () => void;
+  show: boolean;
+  handleClose: () => void;
+};
 
-  const handleClickCancel = () => {
-    setOpenModal(false);
-  };
-
-  const handleClickDelete = () => {
-    console.log("handleClickDelete");
-  };
+export const Modal = ({ handleDelete, show, handleClose }: ModalProps) => {
+  if (!show) return null;
 
   return (
     <S.Wrapper>
@@ -29,10 +26,10 @@ export const Modal = () => {
         </S.Content>
 
         <S.ContentButton>
-          <Button styleType="gray" onClick={handleClickCancel}>
+          <Button styleType="gray" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button styleType="red" onClick={handleClickDelete}>
+          <Button styleType="red" onClick={handleDelete}>
             Excluir Job
           </Button>
         </S.ContentButton>
