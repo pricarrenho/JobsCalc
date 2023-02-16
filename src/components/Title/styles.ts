@@ -2,9 +2,9 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.h1`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xlg};
+    font-size: ${theme.font.sizes.lg};
     position: relative;
-    margin-bottom: 1.5rem;
+    margin: 1rem;
 
     &::after {
       content: "";
@@ -14,6 +14,11 @@ export const Wrapper = styled.h1`
       border: 1.5px solid ${theme.colors.neutral600};
       bottom: -10px;
       left: 0px;
+    }
+
+    @media (min-width: 800px) {
+      font-size: ${theme.font.sizes.xlg};
+      margin: 0rem 0rem 1.5rem;
     }
   `}
 `;

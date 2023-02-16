@@ -3,8 +3,13 @@ import styled, { css } from "styled-components";
 export const Content = styled.label`
   ${() => css`
     display: flex;
-    justify-content: center;
     align-items: flex-end;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+
+    @media (min-width: 800px) {
+      padding: 0rem;
+    }
   `}
 `;
 
@@ -17,10 +22,14 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   ${() => css`
-    margin-left: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
     margin-top: 0.5rem;
     cursor: pointer;
+
+    @media (min-width: 800px) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   `}
 `;

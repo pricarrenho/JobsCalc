@@ -62,13 +62,15 @@ export const EditJob = () => {
         <S.Wrapper>
           <div>
             <Title children="Dados do Job" />
-            <Input
-              label="Nome do Job"
-              name="name"
-              value={name}
-              type="text"
-              onChange={setName}
-            />
+            <S.FirstInput>
+              <Input
+                label="Nome do Job"
+                name="name"
+                value={name}
+                type="text"
+                onChange={setName}
+              />
+            </S.FirstInput>
             <S.Input>
               <Input
                 value={hoursPerDay}
@@ -100,11 +102,12 @@ export const EditJob = () => {
               />
             </S.InputCheckBox>
           </div>
-
-          <Card
-            children="Preencha os dados ao lado para ver o valor do projeto"
-            handleSubmit={handleClick}
-          />
+          <S.ContentCard>
+            <Card
+              children="Preencha os dados ao lado para ver o valor do projeto"
+              handleSubmit={handleClick}
+            />
+          </S.ContentCard>
         </S.Wrapper>
       </Container>
     </div>

@@ -2,14 +2,18 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    display: grid;
-    grid-template-columns: 1.5fr 1.2fr repeat(3, 1fr);
-    padding: 0rem 2rem;
     background-color: ${theme.colors.white};
-    height: 6rem;
+    position: relative;
     border-radius: 8px;
     margin-bottom: 8px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    gap: 1rem;
+    text-align: center;
 
     &:hover {
       background: linear-gradient(
@@ -18,6 +22,13 @@ export const Wrapper = styled.div`
         rgba(250, 232, 210, 1) 0.5%,
         rgba(251, 251, 251, 1) 29%
       );
+    }
+
+    @media (min-width: 800px) {
+      display: grid;
+      grid-template-columns: 1.5fr 1.2fr repeat(3, 1fr);
+      padding: 0rem 2rem;
+      height: 6rem;
     }
   `}
 `;
@@ -29,11 +40,18 @@ export const FirstContent = styled.div`
     gap: 2rem;
 
     span {
+      display: none;
       color: ${theme.colors.gray600};
     }
 
     h2 {
       size: ${theme.font.sizes.lg};
+    }
+
+    @media (min-width: 800px) {
+      span {
+        display: block;
+      }
     }
   `}
 `;
@@ -72,7 +90,13 @@ export const ContentButtons = styled.div`
     gap: 0.5rem;
 
     button {
-      width: 50px;
+      width: 40px;
+    }
+
+    @media (min-width: 800px) {
+      button {
+        width: 50px;
+      }
     }
   `}
 `;

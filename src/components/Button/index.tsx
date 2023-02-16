@@ -16,7 +16,7 @@ export const Button = ({
   const icons = {
     trash: <Trash color={theme.colors.gray600} size={24} />,
     plusSign: <PlusSign color="#FCFDFF" size={32} />,
-    pencil: <Pencil color="#787880" size={24} />,
+    pencil: <Pencil color={theme.colors.gray600} size={24} />,
   };
 
   return (

@@ -8,7 +8,14 @@ export const Wrapper = styled.div`
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    gap: 2rem;
+
+    @media (min-width: 800px) {
+      padding: 2rem;
+      height: 100%;
+      gap: 3rem;
+    }
   `}
 `;
 
@@ -22,8 +29,12 @@ export const Content = styled.div`
 export const Text = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.gray800};
-    font-size: ${theme.font.sizes.md};
+    font-size: ${theme.font.sizes.sm};
     text-align: center;
+
+    @media (min-width: 800px) {
+      font-size: ${theme.font.sizes.md};
+    }
   `}
 `;
 

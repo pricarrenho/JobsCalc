@@ -12,10 +12,6 @@ export const InputRadio = ({
       {option.map((item) => {
         return (
           <S.Content key={item.value}>
-            <S.Label
-              htmlFor={item.value}
-              dangerouslySetInnerHTML={{ __html: item.label }}
-            />
             <S.Input
               type="radio"
               checked={item.value === value}
@@ -23,6 +19,10 @@ export const InputRadio = ({
               id={item.value}
               name={name}
               onChange={() => onChange(item.value as any)}
+            />
+            <S.Label
+              htmlFor={item.value}
+              dangerouslySetInnerHTML={{ __html: item.label }}
             />
           </S.Content>
         );

@@ -19,8 +19,8 @@ export const Input = styled.input`
     min-height: 3.5rem;
     padding-right: 1rem;
     padding-left: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     outline: none;
     box-sizing: border-box;
 
@@ -30,6 +30,11 @@ export const Input = styled.input`
 
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
+    }
+
+    @media (min-width: 800px) {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
   `}
 `;

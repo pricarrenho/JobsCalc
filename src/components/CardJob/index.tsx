@@ -28,6 +28,7 @@ export const CardJob = ({
           <span>{position}</span>
           <h2>{name}</h2>
         </S.FirstContent>
+
         <S.MiddleContents>
           <span>Prazo</span>
 
@@ -35,6 +36,7 @@ export const CardJob = ({
             {daysLeft} dia{daysLeft > 1 && "s"} para entrega
           </p>
         </S.MiddleContents>
+
         <S.MiddleContents>
           <span>Valor</span>
           <p>{convertToCurrency(value)}</p>
@@ -43,6 +45,7 @@ export const CardJob = ({
         <S.ContainerStatus>
           <JobStatus type={jobsStatus}></JobStatus>
         </S.ContainerStatus>
+
         <S.ContentButtons>
           <Button
             styleType="white"

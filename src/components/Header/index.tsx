@@ -46,7 +46,7 @@ export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
       <Container>
         <S.Wrapper>
           <div>
-            <Logo />
+            <Logo width="192" />
           </div>
           <S.Alert>
             <h2>

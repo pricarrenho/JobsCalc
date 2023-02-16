@@ -18,9 +18,9 @@ export const Card = ({ children, active, handleSubmit }: CardProps) => {
           alt="Imagem de notas de dinheiro amarradas"
           active={active}
         />
-
-        <S.Text>{children}</S.Text>
       </S.Content>
+
+      <S.Text>{children}</S.Text>
 
       <S.ButtonDiv>
         <Button styleType="green" onClick={handleSubmit}>

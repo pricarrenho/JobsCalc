@@ -15,14 +15,20 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    width: 28rem;
-    height: 22rem;
+    width: 20rem;
+    height: 20rem;
+
     background: ${theme.colors.neutral500};
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
     align-items: center;
+
+    @media (min-width: 800px) {
+      width: 28rem;
+      height: 28rem;
+    }
   `}
 `;
 
@@ -44,6 +50,12 @@ export const ContentButton = styled.div`
   gap: 0.5rem;
 
   button {
-    width: 12rem;
+    width: 8rem;
+  }
+
+  @media (min-width: 800px) {
+    button {
+      width: 12rem;
+    }
   }
 `;
