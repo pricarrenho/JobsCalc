@@ -8,11 +8,11 @@ export const Wrapper = styled.div`
     margin-bottom: 8px;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 16px;
     align-items: center;
     justify-content: center;
     height: auto;
-    gap: 1rem;
+    gap: 16px;
     text-align: center;
 
     &:hover {
@@ -27,8 +27,8 @@ export const Wrapper = styled.div`
     @media (min-width: 800px) {
       display: grid;
       grid-template-columns: 1.5fr 1.2fr repeat(3, 1fr);
-      padding: 0rem 2rem;
-      height: 6rem;
+      padding: 0px 32px;
+      height: 96px;
     }
   `}
 `;
@@ -37,7 +37,7 @@ export const FirstContent = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 32px;
 
     span {
       display: none;
@@ -45,7 +45,7 @@ export const FirstContent = styled.div`
     }
 
     h2 {
-      size: ${theme.font.sizes.lg};
+      font-size: ${theme.font.sizes.lg};
     }
 
     @media (min-width: 800px) {
@@ -87,7 +87,7 @@ export const ContentButtons = styled.div`
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
 
     button {
       width: 40px;

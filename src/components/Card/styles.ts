@@ -5,16 +5,16 @@ export const Wrapper = styled.div`
     background: ${theme.colors.neutral400};
     border: 1px solid ${theme.colors.neutral700};
     border-radius: 8px;
-    padding: 2.5rem;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: 32px;
 
     @media (min-width: 800px) {
-      padding: 2rem;
+      padding: 32px;
       height: 100%;
-      gap: 3rem;
+      gap: 48px;
     }
   `}
 `;
@@ -23,7 +23,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 `;
 
 export const Text = styled.p`
@@ -59,7 +59,7 @@ export const Img = styled.img<ImgProps>`
 export const ButtonDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 16px;
 
   button {
     width: 60%;

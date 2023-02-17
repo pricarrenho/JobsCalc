@@ -2,6 +2,10 @@ import { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   ${({ theme }) => css`
+    html {
+      font-size: 62.5%;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -27,11 +31,17 @@ export const GlobalStyle = createGlobalStyle`
       color: ${theme.colors.gray800};
     }
 
-    p,
     span,
     label {
       font-weight: 500;
-      line-height: 1.5rem;
+      line-height: 24px;
+      font-size: ${theme.font.sizes.sm};
+    }
+
+    p {
+      font-weight: 500;
+      line-height: 24px;
+      font-size: ${theme.font.sizes.xsm};
     }
 
     a {

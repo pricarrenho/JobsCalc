@@ -3,16 +3,16 @@ import styled, { css } from "styled-components";
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  margin-top: 0.5rem;
+  margin-top: 8px;
   justify-items: center;
-  gap: 1rem;
+  gap: 16px;
 
   @media (min-width: 800px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 4rem;
+    margin-top: 64px;
     justify-items: start;
-    gap: 0rem;
+    gap: 0px;
   }
 `;
 
@@ -24,22 +24,22 @@ export const LeftContentCard = styled.div`
     background: ${theme.colors.neutral400};
     border: 1px solid ${theme.colors.neutral700};
     border-radius: 8px;
-    width: 13rem;
-    padding: 2rem;
+    width: 208px;
+    padding: 32px;
 
     h2 {
       color: ${theme.colors.gray800};
       font-size: ${theme.font.sizes.lg};
       font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
+      margin-top: 16px;
+      margin-bottom: 24px;
     }
 
     p {
       color: ${theme.colors.gray800};
       font-size: ${theme.font.sizes.sm};
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 16px;
     }
 
     span {
@@ -47,8 +47,8 @@ export const LeftContentCard = styled.div`
     }
 
     @media (min-width: 800px) {
-      padding: 3.5rem;
-      width: 16rem;
+      padding: 56px;
+      width: 256px;
 
       p {
         font-size: ${theme.font.sizes.md};
@@ -60,14 +60,14 @@ export const LeftContentCard = styled.div`
 export const Img = styled.img`
   ${({ theme }) => css`
     border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
+    width: 96px;
+    height: 96px;
 
     border: 4px solid ${theme.colors.orange900};
 
     @media (min-width: 800px) {
-      width: 11rem;
-      height: 11rem;
+      width: 116px;
+      height: 116px;
     }
   `}
 `;
@@ -75,8 +75,8 @@ export const Img = styled.img`
 export const InputFirstContent = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  margin: 1rem;
-  gap: 1rem;
+  margin: 16px;
+  gap: 16px;
 
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;
@@ -86,8 +86,8 @@ export const InputFirstContent = styled.div`
 export const InputSecondContent = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  margin: 1rem;
-  gap: 1rem;
+  margin: 16px;
+  gap: 16px;
 
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;

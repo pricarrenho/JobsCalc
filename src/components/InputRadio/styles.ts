@@ -4,11 +4,11 @@ export const Content = styled.label`
   ${() => css`
     display: flex;
     align-items: flex-end;
-    padding: 0.5rem 1rem;
-    gap: 1rem;
+    padding: 8px 16px;
+    gap: 16px;
 
     @media (min-width: 800px) {
-      padding: 0rem;
+      padding: 0px;
     }
   `}
 `;
@@ -22,14 +22,14 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   ${() => css`
-    width: 1rem;
-    height: 1rem;
-    margin-top: 0.5rem;
+    width: 16px;
+    height: 16px;
+    margin-top: 8px;
     cursor: pointer;
 
     @media (min-width: 800px) {
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 24px;
+      height: 24px;
     }
   `}
 `;

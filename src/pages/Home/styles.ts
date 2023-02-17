@@ -3,44 +3,44 @@ import styled, { css } from "styled-components";
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.gray900};
-    padding-bottom: 2.5rem;
+    padding-bottom: 40px;
   `}
 `;
 
 export const WrapperContent = styled.div`
-  margin-top: -1rem;
-  margin-bottom: 2rem;
-  padding: 0rem 1rem;
+  margin-top: -16px;
+  margin-bottom: 32px;
+  padding: 0px 16px;
 
   @media (min-width: 800px) {
-    margin-top: -3rem;
-    margin-bottom: 4rem;
+    margin-top: -48px;
+    margin-bottom: 64px;
   }
 `;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  gap: 1.5rem;
+  gap: 24px;
   align-items: center;
-  padding: 2.5rem 0rem 0rem;
+  padding: 40px 0px 0px;
 
   button {
     display: flex;
-    gap: 1rem;
+    gap: 16px;
     align-items: center;
-    padding: 1rem;
-    width: 15rem;
+    padding: 16px;
+    width: 240px;
   }
 
   @media (min-width: 800px) {
     flex-direction: initial;
     justify-content: space-between;
     align-content: center;
-    padding: 2.5rem 0rem;
+    padding: 40px 0px;
 
     button {
-      gap: 2rem;
+      gap: 32px;
     }
   }
 `;
@@ -49,7 +49,7 @@ export const Content = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-content: center;
-    gap: 1.5rem;
+    gap: 24px;
 
     span {
       color: ${theme.colors.white};
@@ -63,7 +63,7 @@ export const Content = styled.div`
     }
 
     @media (min-width: 800px) {
-      gap: 2.5rem;
+      gap: 40px;
 
       span {
         margin-left: auto;

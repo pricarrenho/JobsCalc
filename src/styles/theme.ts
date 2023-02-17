@@ -25,11 +25,11 @@ const colors = {
 const font = {
   family: "IBM Plex Sans",
   sizes: {
-    xsm: "0.8rem",
-    sm: "1rem",
-    md: "1.25rem",
-    lg: "1.5rem",
-    xlg: "2rem",
+    xsm: "1.4rem",
+    sm: "1.6rem",
+    md: "2.0rem",
+    lg: "2.4rem",
+    xlg: "3.2rem",
   },
 };
 

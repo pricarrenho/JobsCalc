@@ -4,7 +4,7 @@ export const Wrapper = styled.h1`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.lg};
     position: relative;
-    margin: 1rem;
+    margin: 16px;
 
     &::after {
       content: "";
@@ -18,7 +18,7 @@ export const Wrapper = styled.h1`
 
     @media (min-width: 800px) {
       font-size: ${theme.font.sizes.xlg};
-      margin: 0rem 0rem 1.5rem;
+      margin: 0px 0px 24px;
     }
   `}
 `;

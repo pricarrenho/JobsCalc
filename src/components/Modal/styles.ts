@@ -15,19 +15,19 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    width: 20rem;
-    height: 20rem;
+    width: 320px;
+    height: 320px;
 
     background: ${theme.colors.neutral500};
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 40px;
     align-items: center;
 
     @media (min-width: 800px) {
-      width: 28rem;
-      height: 28rem;
+      width: 448px;
+      height: 448px;
     }
   `}
 `;
@@ -47,15 +47,15 @@ export const Content = styled.div`
 
 export const ContentButton = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
 
   button {
-    width: 8rem;
+    width: 128px;
   }
 
   @media (min-width: 800px) {
     button {
-      width: 12rem;
+      width: 192px;
     }
   }
 `;

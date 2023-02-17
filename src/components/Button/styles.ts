@@ -35,8 +35,8 @@ const WrapperModifier = {
   white: (theme: DefaultTheme) => css`
     background-color: ${theme.colors.neutral400};
     border: 1px solid ${theme.colors.neutral700};
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 40px;
+    height: 40px;
 
     &:hover {
       background-color: ${theme.colors.neutral500};
@@ -62,7 +62,7 @@ export const Wrapper = styled.button<WrapperProps>`
     color: ${theme.colors.neutral400};
     border: none;
     border-radius: 8px;
-    height: 3rem;
+    height: 48px;
     text-transform: uppercase;
     cursor: pointer;
 

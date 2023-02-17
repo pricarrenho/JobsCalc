@@ -16,11 +16,11 @@ export const Input = styled.input`
     border: 1px solid ${theme.colors.neutral600};
     border-radius: 5px;
     width: 100%;
-    min-height: 3.5rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    min-height: 56px;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     outline: none;
     box-sizing: border-box;
 
@@ -33,8 +33,8 @@ export const Input = styled.input`
     }
 
     @media (min-width: 800px) {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+      margin-top: 16px;
+      margin-bottom: 16px;
     }
   `}
 `;

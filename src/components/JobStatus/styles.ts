@@ -23,8 +23,9 @@ const WrapperModifier = {
 export const ContentStatus = styled.div<WrapperProps>`
   ${({ theme, type }) => css`
     border-radius: 40px;
-    padding: 0.5rem 1.5rem;
+    padding: 8px 24px;
     font-weight: 500;
+    font-size: ${theme.font.sizes.xsm};
 
     ${type && WrapperModifier[type](theme)}
   `}
