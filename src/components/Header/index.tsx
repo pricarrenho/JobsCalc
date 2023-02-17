@@ -6,11 +6,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
 import yourPhoto from "../../assets/img/photo.png";
 import { ArrowLeft } from "../../assets/svg/ArrowLeft";
+import { useTheme } from "styled-components";
 import * as S from "./styles";
 
 export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
   const { profileData, jobList } = useGlobalContext();
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const hoursJobs = jobList?.reduce((prev, current) => {
     if (current.jobsStatus === "started") {
@@ -31,7 +33,7 @@ export const Header = ({ title, goBackHeader, icon }: HeaderProps) => {
         <Container>
           <S.WrapperGoBackHeader>
             <S.Button onClick={handleGoBack}>
-              <ArrowLeft color="#BFBFCC" />
+              <ArrowLeft color={theme.colors.gray600} />
             </S.Button>
 
             <h2>{title}</h2>

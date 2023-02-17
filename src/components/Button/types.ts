@@ -4,9 +4,11 @@ type ButtonType =
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>;
 
+export type ButtonStyleType = "red" | "green" | "gray" | "orange" | "white";
+
 export type ButtonProps = {
   children?: string;
-  styleType: "red" | "green" | "gray" | "orange" | "white";
+  styleType: ButtonStyleType;
   fullWidth?: boolean;
   icon?: "trash" | "plusSign" | "pencil";
   to?: string;

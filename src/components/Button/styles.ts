@@ -1,7 +1,10 @@
 import styled, { css, DefaultTheme } from "styled-components";
-import { ButtonProps } from "./types";
+import { ButtonStyleType } from "./types";
 
-type WrapperProps = Pick<ButtonProps, "styleType" | "fullWidth">;
+type WrapperProps = {
+  $styleType: ButtonStyleType;
+  $fullWidth: boolean;
+};
 
 const WrapperModifier = {
   red: (theme: DefaultTheme) => css`
@@ -54,7 +57,7 @@ const WrapperModifier = {
 };
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, styleType, fullWidth }) => css`
+  ${({ theme, $styleType, $fullWidth }) => css`
     font-weight: 700;
     color: ${theme.colors.neutral400};
     border: none;
@@ -63,8 +66,8 @@ export const Wrapper = styled.button<WrapperProps>`
     text-transform: uppercase;
     cursor: pointer;
 
-    ${styleType && WrapperModifier[styleType](theme)}
-    ${fullWidth && WrapperModifier.fullWidth()}
+    ${$styleType && WrapperModifier[$styleType](theme)}
+    ${$fullWidth && WrapperModifier.fullWidth()}
 
     &:disabled {
       background-color: ${theme.colors.gray800};

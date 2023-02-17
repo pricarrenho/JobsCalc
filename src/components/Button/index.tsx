@@ -15,12 +15,12 @@ export const Button = ({
   const theme = useTheme();
   const icons = {
     trash: <Trash color={theme.colors.gray600} size={24} />,
-    plusSign: <PlusSign color="#FCFDFF" size={32} />,
+    plusSign: <PlusSign color={theme.colors.neutral400} size={32} />,
     pencil: <Pencil color={theme.colors.gray600} size={24} />,
   };
 
   return (
-    <S.Wrapper styleType={styleType} fullWidth={fullWidth} {...props}>
+    <S.Wrapper $styleType={styleType} $fullWidth={fullWidth} {...props}>
       {icon && icons[icon]} {children}
     </S.Wrapper>
   );

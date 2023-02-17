@@ -122,13 +122,15 @@ export const ContentRight = styled.div`
 `;
 
 export const Img = styled.img`
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  border: 4px solid #f1972c;
+  ${({ theme }) => css`
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    border: 4px solid ${theme.colors.orange900};
 
-  @media (min-width: 800px) {
-    width: 4rem;
-    height: 4rem;
-  }
+    @media (min-width: 800px) {
+      width: 4rem;
+      height: 4rem;
+    }
+  `}
 `;

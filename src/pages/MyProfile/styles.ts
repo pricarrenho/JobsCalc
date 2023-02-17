@@ -58,16 +58,18 @@ export const LeftContentCard = styled.div`
 `;
 
 export const Img = styled.img`
-  border-radius: 50%;
-  width: 6rem;
-  height: 6rem;
+  ${({ theme }) => css`
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
 
-  border: 4px solid #f1972c;
+    border: 4px solid ${theme.colors.orange900};
 
-  @media (min-width: 800px) {
-    width: 11rem;
-    height: 11rem;
-  }
+    @media (min-width: 800px) {
+      width: 11rem;
+      height: 11rem;
+    }
+  `}
 `;
 
 export const InputFirstContent = styled.div`
