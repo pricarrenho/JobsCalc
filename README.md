@@ -53,7 +53,7 @@ $ yarn start
 
 ## 💻 Project
 
-[My Trips](https://www.jobs-calc.pricarrenho.com.br) was developed to validate knowledge in React.
+[Jobs Calc](https://www.jobs-calc.pricarrenho.com.br) was developed to validate knowledge in React.
 
 ---
 
