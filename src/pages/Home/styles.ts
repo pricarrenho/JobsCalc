@@ -11,6 +11,7 @@ export const WrapperContent = styled.div`
   margin-top: -16px;
   margin-bottom: 32px;
   padding: 0px 16px;
+  min-height: calc(100vh - 88px - 100px);
 
   @media (min-width: 800px) {
     margin-top: -48px;

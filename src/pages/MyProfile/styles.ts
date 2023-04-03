@@ -3,9 +3,10 @@ import styled, { css } from "styled-components";
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  margin-top: 8px;
+  margin-top: 16px;
   justify-items: center;
   gap: 16px;
+  min-height: calc(100vh - 88px - 100px);
 
   @media (min-width: 800px) {
     display: grid;
@@ -49,6 +50,7 @@ export const LeftContentCard = styled.div`
     @media (min-width: 800px) {
       padding: 56px;
       width: 256px;
+      height: 60%;
 
       p {
         font-size: ${theme.font.sizes.md};

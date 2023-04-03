@@ -7,6 +7,7 @@ import { Header } from "../../components/Header";
 import { Modal } from "../../components/Modal";
 import { useGlobalContext } from "../../context/GlobalContext";
 import * as S from "./styles";
+import Footer from "../../components/Footer";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -92,6 +93,8 @@ export const Home = () => {
           />
         </S.WrapperContent>
       ))}
+
+      <Footer />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
 import yourPhoto from "../../assets/img/photo.png";
 import * as S from "./styles";
+import Footer from "../../components/Footer";
 
 export const MyProfile = () => {
   const navigate = useNavigate();
@@ -148,6 +149,8 @@ export const MyProfile = () => {
           </div>
         </S.Wrapper>
       </Container>
+
+      <Footer />
     </div>
   );
 };

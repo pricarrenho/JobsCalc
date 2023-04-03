@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
     @media (min-width: 800px) {
       padding: 32px;
-      height: 100%;
+      height: 50%;
       gap: 48px;
     }
   `}

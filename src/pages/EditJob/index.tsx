@@ -9,6 +9,7 @@ import { InputRadio } from "../../components/InputRadio";
 import { Title } from "../../components/Title";
 import { useGlobalContext } from "../../context/GlobalContext";
 import * as S from "./styles";
+import Footer from "../../components/Footer";
 
 type CustomizedEditJobRouterState = {
   id: string;
@@ -110,6 +111,8 @@ export const EditJob = () => {
           </S.ContentCard>
         </S.Wrapper>
       </Container>
+
+      <Footer />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import { v4 as uuidv4 } from "uuid";
 import { InputRadio } from "../../components/InputRadio";
 import * as S from "./styles";
+import Footer from "../../components/Footer";
 
 export const AddNewJob = () => {
   const navigate = useNavigate();
@@ -104,6 +105,8 @@ export const AddNewJob = () => {
           </S.ContentCard>
         </S.Wrapper>
       </Container>
+
+      <Footer />
     </div>
   );
 };
