@@ -27,6 +27,7 @@ export const LeftContentCard = styled.div`
     border-radius: 8px;
     width: 208px;
     padding: 32px;
+    height: 60%;
 
     h2 {
       color: ${theme.colors.gray800};
@@ -50,7 +51,6 @@ export const LeftContentCard = styled.div`
     @media (min-width: 800px) {
       padding: 56px;
       width: 256px;
-      height: 60%;
 
       p {
         font-size: ${theme.font.sizes.md};

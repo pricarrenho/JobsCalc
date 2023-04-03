@@ -49,50 +49,57 @@ export const Home = () => {
         handleClose={handleClose}
       />
       <Header />
+
       <S.Wrapper>
-        <Container>
-          <S.Container>
-            <S.Content>
-              <div>
-                <span>{jobList?.length | 0}</span>
-                <p>Projeto{jobList?.length > 1 && "s"} ao total</p>
-              </div>
-              <div>
-                <span>{statusStarted?.length | 0}</span>
-                <p>Em andamento</p>
-              </div>
-              <div>
-                <span>{statusDone?.length | 0}</span>
-                <p>Encerrado{statusDone?.length > 1 && "s"} </p>
-              </div>
-            </S.Content>
+        <S.WrapperFirstContent>
+          <Container>
+            <S.Container>
+              <S.Content>
+                <div>
+                  <span>{jobList?.length | 0}</span>
+                  <p>Projeto{jobList?.length > 1 && "s"} ao total</p>
+                </div>
+                <div>
+                  <span>{statusStarted?.length | 0}</span>
+                  <p>Em andamento</p>
+                </div>
+                <div>
+                  <span>{statusDone?.length | 0}</span>
+                  <p>Encerrado{statusDone?.length > 1 && "s"} </p>
+                </div>
+              </S.Content>
 
-            {profileData ? (
-              <Button styleType="orange" icon="plusSign" onClick={handleAddJob}>
-                Acionar Novo Job
-              </Button>
-            ) : (
-              <Button styleType="orange" onClick={handleMakePerfil}>
-                Faça seu perfil para começar
-              </Button>
-            )}
-          </S.Container>
-        </Container>
+              {profileData ? (
+                <Button
+                  styleType="orange"
+                  icon="plusSign"
+                  onClick={handleAddJob}
+                >
+                  Acionar Novo Job
+                </Button>
+              ) : (
+                <Button styleType="orange" onClick={handleMakePerfil}>
+                  Faça seu perfil para começar
+                </Button>
+              )}
+            </S.Container>
+          </Container>
+        </S.WrapperFirstContent>
+
+        {jobList?.map((value, index) => (
+          <S.WrapperContent key={value.id}>
+            <CardJob
+              deleteButton={() => handleOpenModal(value.id)}
+              id={value.id}
+              position={index + 1}
+              name={value.name}
+              daysLeft={value.daysLeft}
+              value={value.value}
+              jobsStatus={value.jobsStatus}
+            />
+          </S.WrapperContent>
+        ))}
       </S.Wrapper>
-
-      {jobList?.map((value, index) => (
-        <S.WrapperContent key={value.id}>
-          <CardJob
-            deleteButton={() => handleOpenModal(value.id)}
-            id={value.id}
-            position={index + 1}
-            name={value.name}
-            daysLeft={value.daysLeft}
-            value={value.value}
-            jobsStatus={value.jobsStatus}
-          />
-        </S.WrapperContent>
-      ))}
 
       <Footer />
     </div>
