@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   margin-top: 8px;
   justify-items: center;
   gap: 16px;
-  min-height: calc(100vh - 88px - 100px);
+  min-height: calc(100vh - 88px - 104px);
 
   @media (min-width: 800px) {
     justify-content: space-between;

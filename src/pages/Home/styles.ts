@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Wrapper = styled.div`
   ${() =>
     css`
-      min-height: calc(100vh - 88px - 100px);
+      min-height: calc(100vh - 88px - 104px);
     `}
 `;
 
