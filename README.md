@@ -26,7 +26,7 @@ This project was developed using the following technologies:
 Clone the project and access the folder
 
 ```bash
-$ git clone https://github.com/pricarrenho/JobsCalc && cd jobs-calc
+$ git clone https://github.com/pricarrenho/JobsCalc && cd jobsCalc
 ```
 
 Follow the steps below
